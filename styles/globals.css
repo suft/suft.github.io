@@ -1,16 +1,26 @@
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+@tailwind base;
+
+@media (min-width: 640px) {
+  html {
+    font-size: 20px;
+  }
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+::selection {
+  background: #f6e05e;
 }
 
-* {
-  box-sizing: border-box;
+@tailwind components;
+@tailwind utilities;
+
+.hover-border-styles {
+  @apply transition-colors duration-300 border-transparent border-b-4;
 }
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap')
+
+/* .mono-styles {
+  @apply uppercase tracking-mono-wide text-mono-xs font-mono;
+} */
+
+
