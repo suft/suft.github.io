@@ -6,7 +6,7 @@ import '../styles/globals.css'
 
 const Noop: FC = ({ children }) => <>{children}</>
 
-const App = ({ Component, pageProps }: AppProps) => {
+export default function App({ Component, pageProps }: AppProps) {
   const LayoutNoop = (Component as any).LayoutNoop || Noop
   const router = useRouter()
   useEffect(() => {
@@ -53,5 +53,3 @@ export const reportWebVitals = (metric: NextWebVitalsMetric): void => {
       break
   }
 }
-
-export default App
