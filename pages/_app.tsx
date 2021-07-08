@@ -6,7 +6,7 @@ import '../styles/globals.css'
 
 const Noop: FC = ({ children }) => <>{children}</>
 
-export default function App({ Component, pageProps }: AppProps) {
+export default function NextApp({ Component, pageProps }: AppProps) {
   const LayoutNoop = (Component as any).LayoutNoop || Noop
   const router = useRouter()
   useEffect(() => {
