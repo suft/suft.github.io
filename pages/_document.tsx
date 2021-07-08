@@ -44,10 +44,12 @@ export default class GoogleAnalyticsWriteUp extends Document<DocumentProps | unk
             __html: `window.dataLayer = window.dataLayer || [];
                 function gtag(){dataLayer.push(arguments);}
                 gtag('js', new Date());
+                gtag('set', {
+                  cookie_flags: 'SameSite=None;Secure'
+                });
                 gtag('config', '${GA_TRACKING_ID}', {
                   cookie_domain: 'suft.github.io',
-                  cookie_flags: 'SameSite=None;Secure',
-                  page: window.location.pathname
+                  page_path: window.location.pathname
                 });`
             }} />
         </Head>
