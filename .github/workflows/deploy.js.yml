@@ -30,6 +30,8 @@ jobs:
     - run: rm -rf node_modules
     - run: yarn install --frozen-lockfile
     - run: yarn run build
+      env:
+        NEXT_PUBLIC_GOOGLE_ANALYTICS: ${{ secrets.NEXT_PUBLIC_GOOGLE_ANALYTICS }}
     - run: yarn run export
     - run: touch ./out/.nojekyll
 #     - run: npm ci
