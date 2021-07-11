@@ -6,21 +6,20 @@
   }
 }
 
-::selection {
-  background: #f6e05e;
-}
-
 @tailwind components;
 @tailwind utilities;
+
+::-moz-selection {
+  @apply bg-yellow-400 dark:bg-pink-400
+}
+
+::selection {
+  @apply bg-yellow-400 dark:bg-pink-400
+}
 
 .hover-border-styles {
   @apply transition-colors duration-300 border-transparent border-b-4;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap')
-
-/* .mono-styles {
-  @apply uppercase tracking-mono-wide text-mono-xs font-mono;
-} */
-
-
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');

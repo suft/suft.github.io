@@ -15,15 +15,19 @@ const SITE_DESCRIPTION = 'Software Dev'
 const Home = () => {
   const [lastUpdated, setLastUpdated] = useState<string>('')
   const [avatar, setAvatar] = useState<string>('')
+  const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
     fetch(`https://api.github.com/repos/${HANDLE}/${REPO}`)
     .then((response) => response.json())
     .then((data) => setLastUpdated(data.updated_at))
+
     const number = `${Math.floor((Math.random() * 9) + 1)}`.padStart(2, '0')
     setAvatar(`/images/${number}.png`)
+    setMounted(true)
   }, [])
 
+  if (!mounted) return null
   return (
     <Layout>
       <Head>
