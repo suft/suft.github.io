@@ -4,25 +4,25 @@ import Link from './Link'
 
 const H3 = (props: JSX.IntrinsicElements['h3']) => {
   return (
-    <h3 className="text-xl font-bold font-sans leading-snug mb-4 tracking-tight mt-10"
+    <h3 className="text-xl font-bold font-body leading-snug mb-4 tracking-tight mt-10"
       {...props} />
   )
 }
 
 const UL = (props: JSX.IntrinsicElements['ul']) => {
-  return <ul className="my-4 ml-5 list-disc" {...props} />
+  return <ul className="my-4 ml-5 list-disc font-body" {...props} />
 }
 
 const LI = (props: JSX.IntrinsicElements['li']) => {
-  return <li className="my-2" {...props} />
+  return <li className="my-2 font-body" {...props} />
 }
 
 const P = (props: JSX.IntrinsicElements['p']) => {
-  return <p className="my-6" {...props} />
+  return <p className="my-6 font-body" {...props} />
 }
 
 const A = (props: JSX.IntrinsicElements['a']) => {
-  return <Link className="underline hv:hover:bg-yellow-400" {...props} />
+  return <Link className="font-body underline hv:hover:bg-yellow-400 dark:hover:bg-pink-400" {...props} />
 }
 
 const E = ({ children }: { children: string}) => {
