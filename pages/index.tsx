@@ -39,6 +39,9 @@ const Home = () => {
         <meta property="og:description" content={SITE_DESCRIPTION} />
         <meta name="description" content={SITE_DESCRIPTION} />
         <meta property="og:image" content={`${SITE_URL}/images/og.png`} />
+        <meta 
+          name="google-site-verification" 
+          content="N8aF7i2DswJjIfs6wdT7v-Q1iwzyCBemz5Ec9TDeaFw" />
       </Head>
       <section className="leading-relaxed">
         <div className="my-8">
