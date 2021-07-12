@@ -18,4 +18,4 @@ class WebDocument extends Document {
   }
 }
 
-export default MyDocument
+export default WebDocument
