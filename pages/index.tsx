@@ -4,13 +4,14 @@ import moment from 'moment'
 import Layout from '../components/Layout'
 import { H3, UL, LI, P, A, E } from '../components/Tags'
 import Title from '../components/Title'
-
-const HANDLE = 'suft'
-const REPO = `${HANDLE}.github.io`
-
-const SITE_TITLE = 'Sufien Tout'
-const SITE_URL = `https://${REPO}`
-const SITE_DESCRIPTION = 'Software Dev'
+import {
+  SITE_TITLE,
+  SITE_URL,
+  SITE_DESCRIPTION,
+  GITHUB_API,
+  HANDLE,
+  REPO 
+} from '../lib/constants'
 
 const Home = () => {
   const [lastUpdated, setLastUpdated] = useState<string>('')
@@ -18,7 +19,7 @@ const Home = () => {
   const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
-    fetch(`https://api.github.com/repos/${HANDLE}/${REPO}`)
+    fetch(`${GITHUB_API}/${HANDLE}/${REPO}`)
     .then((response) => response.json())
     .then((data) => setLastUpdated(data.updated_at))
 
@@ -37,10 +38,7 @@ const Home = () => {
         <link rel="canonical" href={SITE_URL} />
         <meta property="og:description" content={SITE_DESCRIPTION} />
         <meta name="description" content={SITE_DESCRIPTION} />
-        <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
-        <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png" />
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png" />
-        <link rel="manifest" href="/favicon/site.webmanifest" />
+        <meta property="og:image" content={`${SITE_URL}/images/og.png`} />
       </Head>
       <section className="leading-relaxed">
         <div className="my-8">
