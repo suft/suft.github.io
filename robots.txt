@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://suft.github.io/sitemaps/sitemap.xml
