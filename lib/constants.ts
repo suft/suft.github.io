@@ -4,6 +4,7 @@ const SITE_DESCRIPTION = '@suft'
 const GITHUB_API = 'https://api.github.com/repos'
 const HANDLE = 'suft'
 const REPO = 'suft.github.io'
+const COUNT_KEY = 'visitors'
 
 export {
   SITE_TITLE,
@@ -11,5 +12,6 @@ export {
   SITE_DESCRIPTION,
   GITHUB_API,
   HANDLE,
-  REPO
+  REPO,
+  COUNT_KEY
 }
