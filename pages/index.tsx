@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Head from 'next/head'
 import moment from 'moment'
+import countapi from 'countapi-js'
 import Layout from '../components/Layout'
 import { H3, UL, LI, P, A, E } from '../components/Tags'
 import Title from '../components/Title'
@@ -10,18 +11,24 @@ import {
   SITE_DESCRIPTION,
   GITHUB_API,
   HANDLE,
-  REPO 
+  REPO,
+  COUNT_KEY
 } from '../lib/constants'
+import ordinal from '../lib/ordinal'
 
 const Home = () => {
   const [lastUpdated, setLastUpdated] = useState<string>('')
   const [avatar, setAvatar] = useState<string>('')
+  const [visitors, setVisitors] = useState(0)
   const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
     fetch(`${GITHUB_API}/${HANDLE}/${REPO}`)
     .then((response) => response.json())
     .then((data) => setLastUpdated(data.updated_at))
+
+    countapi.hit(REPO, COUNT_KEY)
+    .then((response) => setVisitors(response.value))
 
     const number = `${Math.floor((Math.random() * 9) + 1)}`.padStart(2, '0')
     setAvatar(`/images/${number}.png`)
@@ -91,6 +98,9 @@ const Home = () => {
           </LI>
           <LI>
             This page was last edited <strong>{moment(lastUpdated).fromNow()}</strong>.
+          </LI>
+          <LI>
+            You are the <strong>{ordinal(visitors)}</strong> visitor.
           </LI>
         </UL>
       </section>
