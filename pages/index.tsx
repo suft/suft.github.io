@@ -52,7 +52,7 @@ const Home = () => {
           <img
             src={avatar}
             alt="Sufien Tout"
-            className="rounded-full w-80 h-80 block mx-auto shadow-soft"
+            className="block mx-auto rounded-full w-80 h-80 shadow-soft"
             />
         </div>
         <h1>
@@ -94,7 +94,7 @@ const Home = () => {
         <H3>Postscript</H3>
         <UL>
           <LI>
-            This website was built with <A href="https://nextjs.org">Next.js</A>.
+            This website was built with <A href="https://nextjs.org">Next.js</A> and <A href="https://tailwindcss.com">Tailwind CSS</A>.
           </LI>
           <LI>
             This page was last edited <strong>{moment(lastUpdated).fromNow()}</strong>.
