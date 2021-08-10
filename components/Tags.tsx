@@ -4,7 +4,7 @@ import Link from './Link'
 
 const H3 = (props: JSX.IntrinsicElements['h3']) => {
   return (
-    <h3 className="text-xl font-bold font-body leading-snug mb-4 tracking-tight mt-10"
+    <h3 className="mt-10 mb-4 text-xl font-bold leading-snug tracking-tight font-body"
       {...props} />
   )
 }
@@ -22,11 +22,11 @@ const P = (props: JSX.IntrinsicElements['p']) => {
 }
 
 const A = (props: JSX.IntrinsicElements['a']) => {
-  return <Link className="font-body underline hv:hover:bg-yellow-400 dark:hover:bg-pink-400" {...props} />
+  return <Link className="underline font-body hv:hover:bg-yellow-400 dark:hover:bg-pink-400" {...props} />
 }
 
 const E = ({ children }: { children: string}) => {
-  return <Twemoji className="inline-flex align-middle h-auto" svg text={children}/>
+  return <Twemoji className="inline-flex h-auto align-middle" svg text={children}/>
 }
 
 export {
