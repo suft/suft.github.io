@@ -16,7 +16,6 @@ const Custom404 = () => {
         <span className="text-left">
           <UL>
             <LI>The page does not exist</LI>
-            <LI>The page has been removed</LI>
             <LI>You might have mistyped the URL</LI>
             <LI>You like 404 pages</LI>
           </UL>
