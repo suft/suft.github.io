@@ -4,7 +4,7 @@ import { E } from './Tags'
 
 const Footer = () => {
   return (
-    <footer className="pt-12 flex justify-center text-center">
+    <footer className="flex justify-center pt-12 text-center">
       <p>
         <small>
           Made with <E>❤️</E> in <strong>Barrie</strong>
