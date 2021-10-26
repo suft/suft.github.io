@@ -63,8 +63,9 @@ const Home = () => {
           </p>
         </h1>
         <UL>
+          <LI>Associate Software Dev @ <A href="https://www.varicent.com/">Varicent</A></LI>
           <LI>BA in Information Technology from <A href="https://www.yorku.ca/">York University</A>.</LI>
-          <LI>Previously, a Software Dev Intern at <A href="https://www.getencircle.com/">Encircle</A></LI>
+          <LI>Previously, a Software Dev Intern @ <A href="https://www.getencircle.com/">Encircle</A></LI>
           <LI>
             Resume: <A href="/pdfs/Sufien Tout Resume 2021.pdf" target="_blank">Download PDF</A>.
           </LI>
