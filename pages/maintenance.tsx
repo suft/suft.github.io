@@ -12,7 +12,7 @@ const Maintenance = () => {
           This site is getting a little tune up.
         </h2>
         <p className="mt-2 font-body">
-          Sorry for the inconvenience, but I'm performing some maintenance.
+          Sorry for the inconvenience, but I&apos;m performing some maintenance.
         </p>
       </section>
     </Layout>
