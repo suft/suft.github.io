@@ -1,0 +1,14 @@
+---
+.title = "blog",
+.date = @date("2025-08-04T00:00:00"),
+.author = "Sufien Tout",
+.layout = "blog.shtml",
+.alternatives = [{
+    .name = "rss",
+    .layout = "blog.xml",
+    .output = "index.xml",
+}],
+.draft = false,
+---
+
+The blog section also has an [RSS feed]($link.alternative('rss')).

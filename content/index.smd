@@ -1,0 +1,23 @@
+---
+.title = "about",
+.date = @date("2025-08-04T00:00:00"),
+.author = "Sufien Tout",
+.layout = "index.shtml",
+.draft = false,
+---
+
+## ❱ whoami
+
+- dev @ [varicent](https://varicent.com)
+- based in canada
+
+
+## ❱ interests
+- developer experience
+- terminal
+- &#10034;nix
+
+## ❱ connect
+
+- github: [@suft](https://github.com/suft)
+- linkedin: [in/sufientout](https://www.linkedin.com/in/sufientout)

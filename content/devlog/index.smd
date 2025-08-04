@@ -1,0 +1,18 @@
+---
+.title = "devlog archive",
+.date = @date("2025-08-04T00:00:00"),
+.author = "Sufien Tout",
+.layout = "devlog-archive.shtml",
+.alternatives = [{
+    .name = "rss",
+    .layout = "devlog.xml",
+    .output = "index.xml",
+}],
+.draft = false,
+---
+
+This page lists all the devlog years that are present on this site.
+Note how the top navigation menu doesn't link to this page, but instead links
+to the latest devlog year directly.
+
+The latest devlog year is also available [via RSS feed]($link.alternative('rss')).
