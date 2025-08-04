@@ -1,0 +1,23 @@
+*          text=auto
+*.md       text diff=markdown
+*.smd      text diff=markdown
+*.css      text diff=css
+*.shtml    text diff=html
+*.js       text
+*.xml      text
+*.ziggy    text
+*.svg      text
+*.gif      binary
+*.ico      binary
+*.jpg      binary diff=exif
+*.jpeg     binary
+*.png      binary
+*.webp     binary
+*.ttf      binary
+*.eot      binary
+*.otf      binary
+*.woff     binary
+*.woff2    binary
+.editorconfig export-ignore
+.gitattributes export-ignore
+.gitignore export-ignore
