@@ -1,7 +1,7 @@
 ---
 .title = "about",
 .date = @date("2025-08-04T00:00:00"),
-.author = "Sufien Tout",
+.author = "suft",
 .layout = "index.shtml",
 .draft = false,
 ---
@@ -15,7 +15,7 @@
 ## ❱ interests
 - developer experience
 - terminal
-- &#10034;nix
+- linux / mac
 
 ## ❱ connect
 

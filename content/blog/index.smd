@@ -1,7 +1,7 @@
 ---
 .title = "blog",
 .date = @date("2025-08-04T00:00:00"),
-.author = "Sufien Tout",
+.author = "suft",
 .layout = "blog.shtml",
 .alternatives = [{
     .name = "rss",
