@@ -1,12 +1,20 @@
 <extend template="base.shtml">
 <head id="head">
   <style>
-    .date {
-      font-size: 0.9em;
+    .post-listing {
+      font-family: monospace;
+      font-size: 1em;
+      white-space: nowrap;
+      margin-top: 2em;
     }
-    
-    .title h3{
-      margin-top: 0;
+    .post-listing > div {
+      display: flex;
+      align-items: center;
+      gap: 0.5em;
+    }
+    .post-row {
+      margin-top: 0.5em;
+      margin-bottom: 1em;
     }
   </style>
 </head>
@@ -14,12 +22,15 @@
   <h1 :text="$page.title"></h1>
   <div :html="$page.content()"></div>
   <div>
-    <h2>posts</h2>
-    <div :loop="$page.subpages()">
-      <span class="date" :text="$loop.it.date.format('January 02, 2006')"></span>
-      <a class="title" href="$loop.it.link()">
-        <h3 :text="$loop.it.title"></h3>
-      </a>
-    </div>
+    <h2>❱ posts</h2>
+    <span class="post-listing" :loop="$page.subpages()">
+      <div class="post-row">
+        <span>-rw-r--r--</span>
+        <span :text="$loop.it.author.lower()"></span>
+        <span :text="$loop.it.wordCount().str().suffix('W')"></span>
+        <span :text="$loop.it.date.format('Jan 03 2006')"></span>
+        <a href="$loop.it.link()" :text="$loop.it.title.lower()"></a>
+      </div>
+    </span>
   </div>
 </body>

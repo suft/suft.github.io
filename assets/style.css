@@ -27,12 +27,18 @@ strong {
 }
 
 a {
-  color: #eee;
-  text-decoration-style: wavy;
-  transition: color 0.2s ease-in-out;
+  color: var(--accent-color);
+  text-decoration: underline;
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 2px;
+  transition:
+    color 0.2s ease-in-out,
+    text-decoration-thickness 0.2s;
 }
 
-a:hover {
+a:hover, a:focus {
+  color: #fff;
+  text-decoration-thickness: 3px;
   text-decoration-color: var(--accent-color);
 }
 

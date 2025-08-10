@@ -18,10 +18,60 @@
       display:flex;
       flex-direction: column;
     }
+
+    .meta {
+      border: 0.5em solid #242424;
+      border-radius: 0.1em;
+      padding: 0.1em;
+      background: #242424;
+      font-family: "Fira Code", monospace;
+      display: grid;
+      grid-template-columns: max-content 1fr;
+      gap: 0.2em 0.5em;
+    }
+
+    .meta p {
+      display: contents;
+    }
+
+    .meta-label {
+      text-align: right;
+    }
   </style>
 </head>
 <body id="body">
-  <h1 :text="$page.title"></h1>
+  <!-- <h1 :text="$page.title"></h1> -->
+  <h3 class="meta">
+    <p>
+      <span class="meta-label">File:</span>
+      <span>
+        <a href="$site.page('blog').link()">/home/suft/posts/</a><span :text="$page.title.lower()"></span>
+      </span>
+    </p>
+    <p>
+      <span class="meta-label">Size:</span>
+      <span :text="$page.wordCount().str().suffix('W')"></span>
+    </p>
+    <p>
+      <span class="meta-label">Access:</span>
+      <span>(0644/-rw-r--r--)</span>
+    </p>
+    <p>
+      <span class="meta-label">Created:</span>
+      <span :text="$page.date.format('2006-01-02 15:04:05 +0000')"></span>
+    </p>
+    <p>
+      <span class="meta-label">Tags:</span>
+      <span :loop="$page.tags">
+        <span :if="$loop.last">
+          <span :text="$loop.it"></span>
+        </span>
+        <span :if="$loop.last.not()">
+          <span :text="$loop.it.suffix(',')"></span>
+        </span>
+      </span>
+    </p>
+  </h3>
   <div class="post" :html="$page.content()"></div>
   <div id="prev-next">
     <div :if="$page.prevPage?()">
