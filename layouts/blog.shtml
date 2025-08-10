@@ -4,7 +4,6 @@
     .post-listing {
       font-family: monospace;
       font-size: 1em;
-      white-space: nowrap;
       margin-top: 2em;
     }
     .post-listing > div {
