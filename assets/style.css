@@ -1,7 +1,6 @@
 :root {
   --heading-color: #ddd;
-  --accent-color: #ed7dd8;
-  --list-color: #efdcff;
+  --accent-color: #89CFF0;
   --sans-font: -apple-system, BlinkMacSystemFont, "Avenir Next", Avenir,
     "Nimbus Sans L", Roboto, "Noto Sans", "Segoe UI", Arial, Helvetica,
     "Helvetica Neue", sans-serif;
@@ -14,11 +13,6 @@ h4,
 h5 {
   color: var(--heading-color);
   font-family: var(--sans-font);
-}
-
-
-ul ::marker {
-  color: var(--list-color);
 }
 
 b,
@@ -58,6 +52,55 @@ body {
   display: flex;
   flex-direction: column;
 }
+
+pre>code {
+  border: none;
+  padding: 15px;
+  font-family: monospace, monospace;
+  font-size: 1em;
+  line-height: 1.3em !important;
+  display: inline-block;
+  box-sizing: border-box;
+  min-width: 100%;
+}
+
+pre {
+  color: white;
+  border-radius: 6px;
+  margin: 0;
+  padding: 0;
+  background-color: #1E1E1E !important;
+  font-size: 0.85em;
+  overflow: auto;
+}
+
+code {
+  border-radius: 4px;
+  border: 1px solid var(--accent-color);
+  padding: 3px;
+  font-size: 1.1em;
+}
+
+blockquote {
+   margin-left: -1.75rem;
+   margin-right: 1.75rem;
+   margin-top: 0;
+   padding-bottom: 0;
+   padding-left: 1.42188rem;
+   padding-right: 0;
+   padding-top: 0;
+   margin-bottom: 1.75rem;
+   font-size: 1.20112rem;
+   line-height: 1.75rem;
+   color: hsla(0, 0%, 0%, 0.79);
+   font-style: italic;
+   border-left: 0.32813rem solid hsla(0, 0%, 0%, 0.9);
+ }
+
+ blockquote p {
+   margin: 0;
+   margin-bottom: 15px;
+ }
 
 .site-title {
   font-size: 2.5em;

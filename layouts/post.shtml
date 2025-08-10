@@ -1,5 +1,10 @@
 <extend template="base.shtml">
 <head id="head">
+  <link
+    type="text/css"
+    rel="stylesheet"
+    href="$site.asset('term-highlight.css').link()"
+  >
   <style>
     body {
       max-width: 100%;
