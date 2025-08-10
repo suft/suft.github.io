@@ -1,0 +1,7 @@
+---
+.title = "tags",
+.date = @date("2025-08-04T00:00:00"),
+.author = "suft",
+.layout = "tags.shtml",
+.draft = false,
+---

@@ -1,0 +1,33 @@
+<extend template="base.shtml">
+<head id="head">
+  <style>
+    #tags {
+      font-family: monospace;
+      font-size: 1em;
+      white-space: nowrap;
+      margin-top: 1em;
+    }
+    .tag {
+      margin-top: 0.5em;
+      margin-bottom: 1em;
+    }
+  </style>
+</head>
+<body id="body">
+  <h1 :text="$page.title"></h1>
+  <div id="tags">
+    <ctx :loop="$site.page('blog').subpages()">
+      <ctx :loop="$loop.it.tags">
+        <div class="tag">
+          <span>drwxr-xr-x</span>
+          <a :text="$loop.it"></a>
+        </div>
+      </ctx>
+    </ctx>
+  </div>
+  <script>
+    document.querySelectorAll('#tags .tag').forEach((tag, i, tags) => {
+      tag.hidden = [...tags].slice(0, i).some(prev => prev.textContent === tag.textContent);
+    });
+  </script>
+</body>
