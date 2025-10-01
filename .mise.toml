@@ -1,0 +1,9 @@
+[tools]
+"github:kristoff-it/zine" = "latest"
+
+[tasks.dev]
+run = "zine"
+
+[tasks.build]
+run = "zine release"
+

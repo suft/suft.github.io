@@ -24,13 +24,11 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Setup Zine
-        uses: kristoff-it/setup-zine@v1
-        with:
-          version: v0.10.3
+      - name: Setup Mise
+        uses: jdx/mise-action@v3
 
       - name: Release
-        run: zine release
+        run: mise run build
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
