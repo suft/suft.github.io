@@ -67,7 +67,7 @@
     <p>
       <span class="meta-label">File:</span>
       <span>
-        <a href="$site.page('blog').link()">/home/suft/posts/</a><span :text="$page.title.lower()"></span>
+        <a href="$site.page('blog').link()">/home/suft/posts/</a><span :text="$page.link().basename()"></span>
       </span>
     </p>
     <p>

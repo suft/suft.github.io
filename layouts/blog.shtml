@@ -28,7 +28,7 @@
         <span :text="$loop.it.author.lower()"></span>
         <span :text="$loop.it.wordCount().str().suffix('W')"></span>
         <span :text="$loop.it.date.format('Jan 03 2006')"></span>
-        <a href="$loop.it.link()" :text="$loop.it.title.lower()"></a>
+        <a href="$loop.it.link()" :text="$loop.it.link().basename()"></a>
       </div>
     </span>
   </div>
