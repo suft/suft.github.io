@@ -1,0 +1,74 @@
+#!/usr/bin/env bash
+#MISE description="Create a new blog post"
+#USAGE arg "[title]" help="Post title"
+#USAGE arg "[slug]" help="URL slug (auto-generated from title if omitted)"
+#USAGE arg "[date]" help="Post date in YYYY-MM-DD format (defaults to today)"
+
+# Color setup
+if [[ -z "${NO_COLOR}" ]] && { [[ -t 1 ]] || [[ -n "${FORCE_COLOR}" ]]; }; then
+  RED=$(tput setaf 1)
+  GREEN=$(tput setaf 2)
+  YELLOW=$(tput setaf 3)
+  BLUE=$(tput setaf 4)
+  RESET=$(tput sgr0)
+else
+  RED=""
+  GREEN=""
+  YELLOW=""
+  BLUE=""
+  RESET=""
+fi
+
+# Prompt for title if not provided
+if [[ -z "${1}" ]]; then
+  read -rp "${BLUE}Post title${RESET}: " title
+else
+  title="${1}"
+fi
+
+slug="${2}"
+
+date="${3:-$(date +%F)}"
+
+# Generate slug from title if not provided
+if [[ -z "${slug}" ]]; then
+  # ASCII transliteration
+  slug=$(printf '%s' "${title}" | iconv -t ascii//TRANSLIT 2>/dev/null || printf '%s' "${title}")
+  
+  # Convert to lowercase and replace non-alphanumeric with dashes
+  slug=$(printf '%s' "${slug}" | tr '[:upper:]' '[:lower:]' | tr -cs '[:alnum:]' '-')
+  
+  # Trim leading and trailing dashes
+  slug="${slug%-}"
+  slug="${slug#-}"
+fi
+
+fname="content/blog/${slug}/index.smd"
+
+if [[ -e "${fname}" ]]; then
+  echo "${RED}Error${RESET}: '${YELLOW}${fname}${RESET} already exists" >&2
+  exit 2
+fi
+
+# Escape double quotes in title for front matter
+title_esc="${title//\"/\\\"}"
+
+# Create the post file
+mkdir -p "$(dirname "${fname}")"
+cat >"${fname}" <<EOF
+---
+.title = "${title_esc}",
+.date = @date("${date}T00:00:00"),
+.author = "suft",
+.layout = "post.shtml",
+.draft = true,
+---
+
+Your post content goes here.
+
+EOF
+
+# Open in editor
+"${EDITOR:-vi}" "${fname}"
+
+echo "${GREEN}Created '${YELLOW}${fname}${RESET}'"

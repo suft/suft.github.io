@@ -2,8 +2,9 @@
 "github:kristoff-it/zine" = "latest"
 
 [tasks.dev]
+description = "Run the development server"
 run = "zine"
 
 [tasks.build]
+description = "Build the release version"
 run = "zine release"
-
