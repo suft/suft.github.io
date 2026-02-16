@@ -3,3 +3,5 @@ public/
 resources/
 .zig-cache/
 zig-out/
+.vale/styles/
+!.vale/styles/config

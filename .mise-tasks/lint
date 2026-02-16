@@ -1,0 +1,77 @@
+#!/usr/bin/env bash
+#MISE description="Lint blog posts for grammar issues"
+shopt -s globstar nullglob
+
+# Color setup
+if [[ -z "${NO_COLOR}" ]] && { [[ -t 1 ]] || [[ -n "${FORCE_COLOR}" ]]; }; then
+  RED=$(tput setaf 1)
+  GREEN=$(tput setaf 2)
+  YELLOW=$(tput setaf 3)
+  BLUE=$(tput setaf 4)
+  RESET=$(tput sgr0)
+else
+  RED=""
+  GREEN=""
+  YELLOW=""
+  BLUE=""
+  RESET=""
+fi
+
+setup_vale() {
+  local script_dir
+  script_dir=$(dirname "$(realpath "${BASH_SOURCE[0]}")")
+  local vale_config="$script_dir/../.vale.ini"
+
+  if [[ -f $vale_config ]]; then
+    echo "vale" "--config=$vale_config" "--ext=.md"
+  else
+    echo "vale" "--ext=.md"
+  fi
+}
+
+strip_frontmatter() {
+  awk '
+    BEGIN { frontmatter = 0 }
+    /^---$/ { 
+        frontmatter++
+        next
+    }
+    frontmatter >= 2 {
+        sub(/\r$/, "")
+        print
+    }
+  '
+}
+
+lint_file() {
+  local file=$1
+  shift
+  local vale_cmd=("$@")
+  
+  if [[ ! -r $file ]]; then
+    echo "${RED}Error${RESET}: Cannot read file ${YELLOW}${file}${RESET}" >&2
+    return 1
+  fi
+  
+  strip_frontmatter < "$file" | "${vale_cmd[@]}"
+}
+
+main() {
+  local -a vale_cmd
+  IFS=' ' read -r -a vale_cmd <<< "$(setup_vale)"
+  
+  for file in content/blog/**/*.smd; do
+    if [[ ! -f $file ]]; then
+      continue
+    fi
+    if [[ ! -r $file ]]; then
+      continue
+    fi
+    echo "${BLUE}Linting${RESET} ${YELLOW}${file}${RESET}..."
+    lint_file "$file" "${vale_cmd[@]}"
+  done
+}
+
+if [[ "${BASH_SOURCE[0]}" == "$0" ]]; then
+    main "$@"
+fi
