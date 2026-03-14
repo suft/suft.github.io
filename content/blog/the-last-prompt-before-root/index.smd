@@ -1,0 +1,32 @@
+---
+.title = "The Last Prompt Before Root",
+.date = @date("2026-03-14T00:00:00"),
+.author = "suft",
+.layout = "post.shtml",
+.tags = ["til", "bash", "sudo"],
+.draft = false,
+---
+
+Do you live in the terminal? You know that it comes with an OCD for customizing your environment. I learned recently that the sudo prompt is customizable.
+
+```
+[sudo] password for suft:
+```
+
+The default just bothers me. No colour or glyphs.
+You can fix this mortal ricing sin with an environment variable.
+
+An example of what to append to your `~/.bashrc`
+
+```bash
+export SUDO_PROMPT=$'\e[31msudo\e[0m password → \e[34m%u\e[0m: '
+
+```
+
+- `export` - propagates the environment variable to child processes.
+- `$'...'` - ANSI C Quoting interprets `\e`, `\n`, `\t`, etc.
+- `\e[Nm` - ANSI colour codes (terminal feature, enabled by `$'...'`).
+- `%u` - sudo prompt interpolation which expands to the username (not bash)
+
+![](sudo_prompt.png)
+

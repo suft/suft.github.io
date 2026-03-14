@@ -31,6 +31,7 @@
       flex-direction: column;
       max-width: 100%;
       overflow-wrap: break-word;
+      line-height: 1.5em;
     }
 
     .meta {
@@ -58,6 +59,11 @@
     .meta span:not(.meta-label) {
       word-break: break-all;
       overflow-wrap: break-word;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
     }
   </style>
 </head>
